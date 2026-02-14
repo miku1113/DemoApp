@@ -1,50 +1,189 @@
-# Welcome to your Expo app 👋
+# Product Dashboard - React Native App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern, performant mobile application for browsing and searching products with a beautiful UI and smooth animations.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+- **User Authentication** - Secure login screen with form validation
+- **Product Dashboard** - Browse 700+ products in a 3-column grid layout
+- **Smart Search** - Real-time search with category filtering
+- **Infinite Scroll** - Smooth pagination loading products in batches
+- **Scroll Animations** - Auto-hiding tab bar and floating "Back to Top" button
+- **High Performance** - Optimized with FlashList for smooth scrolling
+- **Responsive Design** - Adapts to different screen sizes with safe area handling
+- **Dark Mode Support** - Automatic theme switching based on system preferences
 
-   ```bash
-   npm install
-   ```
+## 📱 Screenshots
 
-2. Start the app
+<!-- Add screenshots here once you deploy -->
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tech Stack
 
-In the output, you'll find options to open the app in a
+- **Framework:** React Native 0.81.5 with Expo SDK 54
+- **Language:** TypeScript 5.3.3
+- **Navigation:** Expo Router (file-based routing)
+- **UI Components:** Custom components with Ionicons
+- **Animations:** React Native Reanimated & Animated API
+- **HTTP Client:** Axios
+- **List Optimization:** @shopify/flash-list
+- **Styling:** StyleSheet API with centralized theming
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📋 Prerequisites
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Node.js >= 20
+- npm or yarn
+- Expo CLI
+- iOS Simulator (Mac only) or Android Emulator
 
-## Get a fresh project
+## 🔧 Installation
 
-When you're ready, run:
-
+1. Clone the repository:
 ```bash
-npm run reset-project
+git clone <your-repo-url>
+cd reactApp
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Learn more
+3. Start the development server:
+```bash
+npm start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+4. Run on your preferred platform:
+```bash
+npm run ios      # iOS Simulator
+npm run android  # Android Emulator
+npm run web      # Web Browser
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 📂 Project Structure
 
-## Join the community
+```
+reactApp/
+├── app/                    # File-based routes
+│   ├── (tabs)/            # Tab navigation screens
+│   │   ├── index.tsx      # Dashboard (Home)
+│   │   ├── search.tsx     # Search screen
+│   │   ├── cart.tsx       # Shopping cart
+│   │   └── profile.tsx    # User profile
+│   ├── _layout.tsx        # Root layout
+│   └── index.tsx          # Login screen
+├── components/            
+│   ├── Card.tsx           # Product card component
+│   ├── CustomTabBar.tsx   # Animated tab bar
+│   └── ui/                # Reusable UI components
+├── constants/
+│   └── theme.ts           # Color palette & theme
+├── context/
+│   └── TabBarContext.tsx  # Tab bar state management
+├── hooks/                 # Custom React hooks
+├── styles/
+│   └── common.ts          # Shared styles
+└── assets/                # Images and static files
+```
 
-Join our community of developers creating universal apps.
+## 🎯 Key Features Explained
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Dashboard with Infinite Scroll
+The home screen fetches products from the DummyJSON API and displays them in a high-performance grid using FlashList. Products load in batches of 21 items as you scroll.
+
+### Smart Filtering
+- **Search:** Real-time filtering by product title
+- **Categories:** Filter by predefined categories (Smartphones, Laptops, etc.)
+- Both filters can be combined for precise results
+
+### Scroll-Based Animations
+- Tab bar automatically hides when scrolling down for better content visibility
+- Floating Action Button (FAB) appears after scrolling 300px to quickly jump to top
+- Both animations are synchronized using React Context
+
+### Performance Optimizations
+- **FlashList:** 10x faster than FlatList for large datasets
+- **Refs for data storage:** Prevents unnecessary re-renders
+- **Batch rendering:** Only renders visible items + small buffer
+- **Native-driven animations:** 60fps smooth animations
+
+## 🎨 Theme System
+
+The app supports light and dark modes with a centralized color palette based on Tailwind CSS colors:
+
+```typescript
+Colors.light.primary    // Deep Navy (#0f172a)
+Colors.light.secondary  // Bright Blue (#3b82f6)
+Colors.light.accent     // Warm Amber (#f59e0b)
+```
+
+Theme automatically switches based on system preferences.
+
+## 📱 Screens Overview
+
+1. **Login Screen** (`app/index.tsx`)
+   - Form validation
+   - Password visibility toggle
+   - Simulated authentication with 1.5s delay
+
+2. **Dashboard** (`app/(tabs)/index.tsx`)
+   - Product grid (3 columns)
+   - Search and category filters
+   - Infinite scroll pagination
+   - Animated header and tab bar
+
+3. **Search, Cart, Profile** (Placeholder screens)
+   - Ready for future implementation
+
+## 🧪 Testing
+
+```bash
+# Run linter
+npm run lint
+```
+
+## 🚢 Building for Production
+
+```bash
+# Build for iOS
+eas build --platform ios
+
+# Build for Android
+eas build --platform android
+```
+
+## 📦 Dependencies
+
+### Production
+- `expo` - Expo framework
+- `expo-router` - File-based navigation
+- `react-native-reanimated` - Advanced animations
+- `@shopify/flash-list` - High-performance lists
+- `axios` - HTTP requests
+- `expo-linear-gradient` - Gradient backgrounds
+
+### Development
+- `typescript` - Type safety
+- `@types/react` - React type definitions
+
+## 🤝 Contributing
+
+This is a portfolio project, but suggestions are welcome!
+
+## 📄 License
+
+MIT License - feel free to use this project for learning purposes.
+
+## 👤 Author
+
+Created as a demonstration of React Native development skills.
+
+## 🙏 Acknowledgments
+
+- Product data from [DummyJSON API](https://dummyjson.com)
+- Icons from [Expo Vector Icons](https://icons.expo.fyi)
+- Built with [Expo](https://expo.dev)
+
+---
+
+**Note:** This is a demo application built for learning and interview purposes. The authentication is simulated and no real user data is stored.
